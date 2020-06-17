@@ -12,8 +12,8 @@ fs.open('./brasil.csv', async (err, data) => {
         console.error(err)
         return
     }
-  console.log('Abriu arquivo');
-  console.timeEnd(tmpAbertura);
+    console.log('Abriu arquivo');
+    console.timeEnd(tmpAbertura);
 })
 
 
@@ -28,12 +28,12 @@ fs.readFile('./brasil.csv', async (err, data) => {
     console.log(await neatCsv(data))
     const finishLeitura = tempo.getMilliseconds();
     const totalLeitura = finishLeitura - startLeitura;
-    
-    
-   console.log(`Tempo de Leitura: ${totalLeitura}ms`);
-   console.log(`Tempo inicial: ${startLeitura}ms`);
-   console.log(`Tempo de Leitura: ${finishLeitura}ms`); 
-   
+
+
+  //  console.log(`Tempo de Leitura: ${totalLeitura}ms`);
+    console.log(`Tempo inicial: ${startLeitura}ms`);
+    console.log(`Tempo de Leitura: ${finishLeitura}ms`);
+
 
 })
 
@@ -50,47 +50,36 @@ csv()
 
         const finishConvert = tempo.getMilliseconds();
         const totalConvert = finishConvert - startConvert;
-       /* console.log(`Tempo inicial: ${startConvert}ms`);
-        console.log(`Tempo final: ${finishConvert}ms`);
-        console.log(`Tempo de Conversão: ${totalConvert}ms`); */
-        
 
-        //Gravando arquivo em txt
-       // const startGrava = tempo.getMilliseconds();
-        var cont=0;
+        var cont = 0;
         const startGrava = tempo.getMilliseconds();
         fs.writeFile("teste.txt", jsonData, function (err) {
             if (err) {
                 console.log(err);
             }
             cont++;
-            
-            
+
+
 
         });
         const finishGrava = tempo.getMilliseconds();
-        const media = ((finishGrava + startGrava)/cont)*6000;
+        const media = ((startGrava) / cont);
         const totalGrava = finishGrava - startGrava;
-       /* console.log(`Tempo inicial: ${startGrava}ms`);
-        console.log(`Tempo final: ${finishGrava}ms`);
-        console.log(`Tempo de Leitura: ${totalGrava}ms`); */
 
 
-      /*  console.log(`Tempo de Leitura: ${totalLeitura}ms`);
-       // console.log(`Tempo Médio: ${ medio}ms`);
-        console.log(`Tempo inicial: ${startLeitura}ms`);
-        console.log(`Tempo final: ${finishLeitura}ms`); */
 
-        
+
+
+
         console.log(`Tempo Inicio Conversão: ${startConvert}ms`);
         console.log(`Tempo final Conversão : ${finishConvert}ms`);
-        console.log(`Tempo de Conversão: ${totalConvert}ms`);
+       // console.log(`Tempo de Conversão: ${totalConvert}ms`);
 
-        console.log(`Tempo de Gravação: ${totalGrava}ms`);
+      //  console.log(`Tempo de Gravação: ${totalGrava}ms`);
         console.log(`Tempo inicial Gravação: ${startGrava}ms`);
         console.log(`Tempo final Gravação: ${finishGrava}ms`);
         console.log(`Tempo medio: ${media}ms `);
-        
+
 
 
 
